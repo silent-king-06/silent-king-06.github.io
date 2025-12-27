@@ -1,0 +1,204 @@
+/* ==========================================
+   🌌 AURORA COSMOS THEME
+   Beautiful aurora & starry night aesthetics
+   ========================================== */
+
+/* ===== Root Variables ===== */
+:root {
+  --aurora-green: #00ff9f;
+  --aurora-cyan: #05d9e8;
+  --aurora-teal: #00b4d8;
+  --aurora-blue: #0077b6;
+  --aurora-purple: #9d4edd;
+  --cosmos-dark: #0a0a12;
+  --star-white: #ffffff;
+}
+
+/* ===== Dark Mode ===== */
+[data-theme="dark"] {
+  --global-bg: var(--cosmos-dark) !important;
+  --font-color: #e8e8e8 !important;
+  --card-bg: rgba(10, 10, 18, 0.85) !important;
+  --sidebar-bg: rgba(10, 10, 18, 0.9) !important;
+}
+
+/* ===== Background Overlay ===== */
+body {
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 30% 20%, rgba(0, 255, 159, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 30%, rgba(5, 217, 232, 0.08) 0%, transparent 40%),
+    linear-gradient(180deg, rgba(10, 10, 18, 0.3) 0%, rgba(10, 10, 18, 0.7) 100%);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* ===== Navigation Bar ===== */
+#nav {
+  background: rgba(10, 10, 18, 0.9) !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(5, 217, 232, 0.3);
+}
+
+#nav a {
+  color: var(--aurora-cyan) !important;
+  transition: all 0.3s ease;
+}
+
+#nav a:hover {
+  color: var(--aurora-green) !important;
+  text-shadow: 0 0 10px var(--aurora-green);
+}
+
+#site-name {
+  background: linear-gradient(135deg, var(--aurora-green), var(--aurora-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Cards ===== */
+#recent-posts > .recent-post-item,
+.card-widget {
+  background: rgba(10, 10, 18, 0.8) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(5, 217, 232, 0.2) !important;
+  border-radius: 15px !important;
+  transition: all 0.3s ease;
+}
+
+#recent-posts > .recent-post-item:hover,
+.card-widget:hover {
+  border-color: var(--aurora-cyan) !important;
+  box-shadow: 0 0 30px rgba(5, 217, 232, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ===== Post Titles ===== */
+.recent-post-info .article-title {
+  background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Links ===== */
+a {
+  color: var(--aurora-cyan);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--aurora-green);
+  text-shadow: 0 0 8px var(--aurora-green);
+}
+
+/* ===== Buttons ===== */
+button, .btn,
+#pagination .page-number {
+  background: linear-gradient(135deg, var(--aurora-teal), var(--aurora-blue)) !important;
+  border: 1px solid var(--aurora-cyan) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+button:hover, .btn:hover,
+#pagination .page-number:hover {
+  box-shadow: 0 0 20px var(--aurora-cyan);
+}
+
+/* ===== Code Blocks ===== */
+figure.highlight, pre {
+  background: rgba(10, 10, 18, 0.95) !important;
+  border: 1px solid rgba(0, 255, 159, 0.2) !important;
+  border-radius: 10px !important;
+}
+
+code {
+  color: var(--aurora-green) !important;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cosmos-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--aurora-cyan), var(--aurora-purple));
+  border-radius: 4px;
+}
+
+/* ===== Footer ===== */
+#footer {
+  background: rgba(10, 10, 18, 0.95) !important;
+  border-top: 1px solid rgba(5, 217, 232, 0.3);
+}
+
+/* ===== Avatar ===== */
+.avatar-img {
+  border: 2px solid var(--aurora-cyan) !important;
+  box-shadow: 0 0 15px rgba(5, 217, 232, 0.5);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: var(--aurora-purple);
+  color: #fff;
+}
+
+/* ===== Right Side Buttons ===== */
+#rightside > div,
+#rightside > button {
+  background: rgba(10, 10, 18, 0.9) !important;
+  border: 1px solid var(--aurora-cyan) !important;
+}
+
+#rightside > div:hover,
+#rightside > button:hover {
+  box-shadow: 0 0 15px var(--aurora-cyan);
+}
+
+/* ===== Article Headers ===== */
+#article-container h1,
+#article-container h2,
+#article-container h3 {
+  background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Blockquote ===== */
+#article-container blockquote {
+  background: rgba(10, 10, 18, 0.7);
+  border-left: 4px solid var(--aurora-cyan);
+  padding: 15px 20px;
+  border-radius: 0 10px 10px 0;
+}
+
+/* ===== Tags ===== */
+.tag-cloud-list a {
+  background: rgba(5, 217, 232, 0.1) !important;
+  border: 1px solid rgba(5, 217, 232, 0.3);
+  border-radius: 20px;
+}
+
+.tag-cloud-list a:hover {
+  background: var(--aurora-cyan) !important;
+}
