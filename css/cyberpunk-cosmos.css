@@ -1,10 +1,9 @@
 /* ==========================================
-   🌌 AURORA COSMOS THEME
-   Beautiful aurora & starry night aesthetics
+   🌌 AURORA COSMOS THEME - Fixed Background
    ========================================== */
 
-/* ===== Google Fonts - Elegant Script ===== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+/* ===== Google Fonts - Smooth & Elegant ===== */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Nunito:wght@400;500;600&display=swap');
 
 /* ===== Root Variables ===== */
 :root {
@@ -17,75 +16,93 @@
   --star-white: #ffffff;
 }
 
-/* ===== CRITICAL: Fixed Background ===== */
+/* ===== FIXED BACKGROUND - NAILED TO SCREEN ===== */
+html {
+  height: 100%;
+}
+
 body {
-  background: url('/img/MaligneLakeJasper.jpg') no-repeat center center fixed !important;
+  min-height: 100%;
+  background-image: url('/img/MaligneLakeJasper.jpg') !important;
+  background-attachment: fixed !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
   background-size: cover !important;
 }
 
-/* Remove ALL black backgrounds */
-#web_bg,
+/* REMOVE ALL OTHER BACKGROUNDS */
+#web_bg {
+  display: none !important;
+}
+
 #page,
+#body-wrap,
 #content-inner,
 .layout,
 main,
 .recent-posts,
 #aside-content,
-.aside-content {
+.aside-content,
+.layout_post,
+.layout_page {
   background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
 }
 
-/* Ensure page wrapper is transparent */
-#body-wrap {
-  background: transparent !important;
+/* ===== Typography - Smooth & Flowing ===== */
+body,
+p,
+span,
+div {
+  font-family: 'Quicksand', 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 500;
 }
 
-/* ===== Dark Mode ===== */
+/* Elegant Script for Titles */
+h1, h2, h3, h4, h5, h6,
+#site-name,
+.site-name,
+.author-info__name,
+.article-title,
+.recent-post-info .article-title,
+#page-header #site-title,
+.site-title {
+  font-family: 'Dancing Script', cursive !important;
+  font-weight: 600 !important;
+  letter-spacing: 1px;
+}
+
+/* ===== Dark Theme ===== */
 [data-theme="dark"] {
   --global-bg: transparent !important;
-  --font-color: #e8e8e8 !important;
-  --card-bg: rgba(10, 10, 18, 0.85) !important;
-  --sidebar-bg: rgba(10, 10, 18, 0.9) !important;
+  --font-color: #f0f0f0 !important;
 }
 
-/* Light overlay for readability */
-body::before {
+/* Semi-transparent overlay */
+body::after {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 18, 0.4);
+  background: rgba(0, 0, 0, 0.35);
   z-index: -1;
   pointer-events: none;
 }
 
-/* ===== Elegant Typography ===== */
-body {
-  font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif !important;
-}
-
-h1, h2, h3, h4, h5, h6,
-#site-name,
-.site-name,
-.author-info__name,
-.article-title {
-  font-family: 'Playfair Display', 'Times New Roman', Georgia, serif !important;
-  font-style: italic;
-}
-
 /* ===== Navigation Bar ===== */
 #nav {
-  background: rgba(10, 10, 18, 0.85) !important;
-  backdrop-filter: blur(15px);
+  background: rgba(10, 10, 18, 0.8) !important;
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(5, 217, 232, 0.3);
 }
 
 #nav a {
   color: var(--aurora-cyan) !important;
-  font-family: 'Playfair Display', serif !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 600 !important;
   transition: all 0.3s ease;
 }
 
@@ -95,44 +112,64 @@ h1, h2, h3, h4, h5, h6,
 }
 
 #site-name {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.8em !important;
   background: linear-gradient(135deg, var(--aurora-green), var(--aurora-cyan));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-size: 1.5em !important;
-  letter-spacing: 2px;
+}
+
+/* ===== Page Header Title ===== */
+#page-header.full_page #site-title,
+#page-header #site-title {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 4rem !important;
+}
+
+#page-header.full_page #site-subtitle,
+#page-header #site-subtitle {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 1.5rem !important;
+  font-style: italic;
 }
 
 /* ===== Cards ===== */
 #recent-posts > .recent-post-item,
 .card-widget {
-  background: rgba(10, 10, 18, 0.75) !important;
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(5, 217, 232, 0.2) !important;
-  border-radius: 15px !important;
+  background: rgba(10, 10, 18, 0.7) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(5, 217, 232, 0.25) !important;
+  border-radius: 16px !important;
   transition: all 0.3s ease;
 }
 
 #recent-posts > .recent-post-item:hover,
 .card-widget:hover {
   border-color: var(--aurora-cyan) !important;
-  box-shadow: 0 0 30px rgba(5, 217, 232, 0.2);
+  box-shadow: 0 0 25px rgba(5, 217, 232, 0.25);
   transform: translateY(-3px);
 }
 
-/* ===== Author Card Name ===== */
+/* ===== Author Card ===== */
 .author-info__name {
-  font-size: 1.4em !important;
-  letter-spacing: 1px;
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.8em !important;
+}
+
+.author-info__description {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 0.95em !important;
 }
 
 /* ===== Post Titles ===== */
 .recent-post-info .article-title {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.6em !important;
   background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-family: 'Playfair Display', serif !important;
 }
 
 /* ===== Links ===== */
@@ -148,11 +185,14 @@ a:hover {
 
 /* ===== Buttons ===== */
 button, .btn,
-#pagination .page-number {
+#pagination .page-number,
+.card-more-btn {
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 600 !important;
   background: linear-gradient(135deg, var(--aurora-teal), var(--aurora-blue)) !important;
   border: 1px solid var(--aurora-cyan) !important;
   color: #fff !important;
-  border-radius: 8px !important;
+  border-radius: 20px !important;
   transition: all 0.3s ease !important;
 }
 
@@ -163,12 +203,13 @@ button:hover, .btn:hover,
 
 /* ===== Code Blocks ===== */
 figure.highlight, pre {
-  background: rgba(10, 10, 18, 0.95) !important;
+  background: rgba(10, 10, 18, 0.9) !important;
   border: 1px solid rgba(0, 255, 159, 0.2) !important;
-  border-radius: 10px !important;
+  border-radius: 12px !important;
 }
 
 code {
+  font-family: 'Fira Code', 'Monaco', monospace !important;
   color: var(--aurora-green) !important;
 }
 
@@ -178,7 +219,7 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cosmos-dark);
+  background: rgba(10, 10, 18, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -188,8 +229,12 @@ code {
 
 /* ===== Footer ===== */
 #footer {
-  background: rgba(10, 10, 18, 0.95) !important;
+  background: rgba(10, 10, 18, 0.85) !important;
   border-top: 1px solid rgba(5, 217, 232, 0.3);
+}
+
+#footer * {
+  font-family: 'Quicksand', sans-serif !important;
 }
 
 /* ===== Avatar ===== */
@@ -207,8 +252,9 @@ code {
 /* ===== Right Side Buttons ===== */
 #rightside > div,
 #rightside > button {
-  background: rgba(10, 10, 18, 0.9) !important;
+  background: rgba(10, 10, 18, 0.85) !important;
   border: 1px solid var(--aurora-cyan) !important;
+  border-radius: 50% !important;
 }
 
 #rightside > div:hover,
@@ -216,10 +262,18 @@ code {
   box-shadow: 0 0 15px var(--aurora-cyan);
 }
 
-/* ===== Article Headers ===== */
+/* ===== Article Content ===== */
+#article-container {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 1.05em;
+  line-height: 1.8;
+}
+
 #article-container h1,
 #article-container h2,
-#article-container h3 {
+#article-container h3,
+#article-container h4 {
+  font-family: 'Dancing Script', cursive !important;
   background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-green));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -228,19 +282,48 @@ code {
 
 /* ===== Blockquote ===== */
 #article-container blockquote {
-  background: rgba(10, 10, 18, 0.7);
+  background: rgba(10, 10, 18, 0.6);
   border-left: 4px solid var(--aurora-cyan);
   padding: 15px 20px;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
 }
 
 /* ===== Tags ===== */
-.tag-cloud-list a {
-  background: rgba(5, 217, 232, 0.1) !important;
+.tag-cloud-list a,
+#tag-cloud-tags a {
+  font-family: 'Quicksand', sans-serif !important;
+  background: rgba(5, 217, 232, 0.15) !important;
   border: 1px solid rgba(5, 217, 232, 0.3);
   border-radius: 20px;
 }
 
-.tag-cloud-list a:hover {
+.tag-cloud-list a:hover,
+#tag-cloud-tags a:hover {
   background: var(--aurora-cyan) !important;
+  color: #000 !important;
+}
+
+/* ===== Archive Page ===== */
+.article-sort-title {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 2em !important;
+}
+
+.article-sort-item-title {
+  font-family: 'Quicksand', sans-serif !important;
+}
+
+/* ===== Top Image Area ===== */
+#page-header {
+  background: transparent !important;
+}
+
+#page-header::before {
+  background: transparent !important;
+}
+
+/* ===== Menu Items ===== */
+#menus .menus_items {
+  font-family: 'Quicksand', sans-serif !important;
 }
