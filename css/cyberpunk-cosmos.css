@@ -27,6 +27,28 @@ body {
   background-attachment: fixed !important;
   background-size: cover !important;
   background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Make sure the background stays fixed and visible */
+#web_bg {
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* Remove the black overlay that covers the background */
+#page {
+  background: transparent !important;
+}
+
+#content-inner {
+  background: transparent !important;
+}
+
+/* Keep cards semi-transparent so background shows through */
+.layout {
+  background: transparent !important;
 }
 
 body::before {
