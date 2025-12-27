@@ -87,28 +87,30 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.2);
   z-index: -1;
   pointer-events: none;
 }
 
-/* ===== Navigation Bar ===== */
+/* ===== Navigation Bar - iOS Style ===== */
 #nav {
-  background: rgba(10, 10, 18, 0.8) !important;
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(5, 217, 232, 0.3);
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(25px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 #nav a {
-  color: var(--aurora-cyan) !important;
+  color: #ffffff !important;
   font-family: 'Quicksand', sans-serif !important;
   font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 #nav a:hover {
-  color: var(--aurora-green) !important;
-  text-shadow: 0 0 10px var(--aurora-green);
+  color: var(--aurora-cyan) !important;
+  text-shadow: 0 0 10px var(--aurora-cyan);
 }
 
 #site-name {
@@ -134,29 +136,43 @@ body::after {
   font-style: italic;
 }
 
-/* ===== Cards - Frosted Glass Effect ===== */
+/* ===== iOS Style Frosted Glass Effect ===== */
 #recent-posts > .recent-post-item,
 .card-widget,
 .layout > div,
 #post,
-#page,
 .card-info,
-.article-sort {
-  background: rgba(15, 20, 30, 0.65) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+.article-sort,
+#article-container,
+.layout_post > div,
+.layout_page > div {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(25px) saturate(200%) brightness(1.1) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(200%) brightness(1.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 20px !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
   transition: all 0.3s ease;
 }
 
 #recent-posts > .recent-post-item:hover,
 .card-widget:hover {
-  background: rgba(15, 20, 30, 0.75) !important;
-  border-color: var(--aurora-cyan) !important;
-  box-shadow: 0 8px 32px rgba(5, 217, 232, 0.2), 0 0 20px rgba(5, 217, 232, 0.15) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
   transform: translateY(-3px);
+}
+
+/* Text on frosted glass - ensure readability */
+.card-widget *,
+#recent-posts > .recent-post-item *,
+.article-sort * {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== Author Card ===== */
@@ -235,14 +251,18 @@ code {
   border-radius: 4px;
 }
 
-/* ===== Footer ===== */
+/* ===== Footer - iOS Style ===== */
 #footer {
-  background: rgba(10, 10, 18, 0.85) !important;
-  border-top: 1px solid rgba(5, 217, 232, 0.3);
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(25px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 #footer * {
   font-family: 'Quicksand', sans-serif !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== Avatar ===== */
@@ -257,17 +277,20 @@ code {
   color: #fff;
 }
 
-/* ===== Right Side Buttons ===== */
+/* ===== Right Side Buttons - iOS Style ===== */
 #rightside > div,
 #rightside > button {
-  background: rgba(10, 10, 18, 0.85) !important;
-  border: 1px solid var(--aurora-cyan) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
   border-radius: 50% !important;
 }
 
 #rightside > div:hover,
 #rightside > button:hover {
-  box-shadow: 0 0 15px var(--aurora-cyan);
+  background: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== Article Content ===== */
