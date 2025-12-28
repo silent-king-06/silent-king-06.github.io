@@ -1,0 +1,601 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>📖 博客使用指南 | Wandering Poet</title><meta name="author" content="ZOLF"><meta name="copyright" content="ZOLF"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content=".guide-section {   background: rgba(255, 255, 255, 0.1);   backdrop-filter: blur(20px) saturate(180%);   -webkit-backdrop-filter: blur(20px) saturate(180%);   border: 1px solid rgba(255, 255, 255, 0.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="📖 博客使用指南">
+<meta property="og:url" content="https://silent-king-06.github.io/guide/index.html">
+<meta property="og:site_name" content="Wandering Poet">
+<meta property="og:description" content=".guide-section {   background: rgba(255, 255, 255, 0.1);   backdrop-filter: blur(20px) saturate(180%);   -webkit-backdrop-filter: blur(20px) saturate(180%);   border: 1px solid rgba(255, 255, 255, 0.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://silent-king-06.github.io/img/avatar.png">
+<meta property="article:published_time" content="2025-12-28T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-28T10:42:36.331Z">
+<meta property="article:author" content="ZOLF">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="code">
+<meta property="article:tag" content="poetry">
+<meta property="article:tag" content="programming">
+<meta property="article:tag" content="technology">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://silent-king-06.github.io/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://silent-king-06.github.io/guide/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 7 || hour >= 19
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '📖 博客使用指南',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/cyberpunk-cosmos.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet"><meta name="generator" content="Hexo 8.1.1"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div class="bg-animation" id="web_bg" style="background-image: url(/url(/img/MaligneLakeJasper.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-feather-alt"></i><span> Blog</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-shapes"></i><span> Library</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-layer-group"></i><span> Collections</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/projects/"><i class="fa-fw fas fa-rocket"></i><span> Projects</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user-astronaut"></i><span> About</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-id-card"></i><span> Me</span></a></li><li><a class="site-page child" href="/resume/"><i class="fa-fw fas fa-file-alt"></i><span> Resume</span></a></li><li><a class="site-page child" href="/guide/"><i class="fa-fw fas fa-book-open"></i><span> Guide</span></a></li></ul></div></div></div></div><div class="page type-guide" id="body-wrap"><header class="not-home-page fixed" id="page-header" style="background-image: url(/img/MaligneLakeJasper.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Wandering Poet</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-feather-alt"></i><span> Blog</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-shapes"></i><span> Library</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-layer-group"></i><span> Collections</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/projects/"><i class="fa-fw fas fa-rocket"></i><span> Projects</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user-astronaut"></i><span> About</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-id-card"></i><span> Me</span></a></li><li><a class="site-page child" href="/resume/"><i class="fa-fw fas fa-file-alt"></i><span> Resume</span></a></li><li><a class="site-page child" href="/guide/"><i class="fa-fw fas fa-book-open"></i><span> Guide</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">📖 博客使用指南</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
+.guide-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+.guide-title {
+  color: #05d9e8;
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(5, 217, 232, 0.3);
+  padding-bottom: 10px;
+}
+.code-example {
+  background: rgba(10, 10, 20, 0.8);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  overflow-x: auto;
+}
+.tip-box {
+  background: rgba(5, 217, 232, 0.15);
+  border-left: 4px solid #05d9e8;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.warning-box {
+  background: rgba(255, 193, 7, 0.15);
+  border-left: 4px solid #ffc107;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+</style>
+
+<h1 id="📖-Hexo-Butterfly-博客完整使用指南"><a href="#📖-Hexo-Butterfly-博客完整使用指南" class="headerlink" title="📖 Hexo Butterfly 博客完整使用指南"></a>📖 Hexo Butterfly 博客完整使用指南</h1><p>欢迎！这份指南将教你如何使用这个博客系统写文章、管理分类标签，以及自定义各个页面。</p>
+<hr>
+<div class="guide-section">
+<h2 class="guide-title">🌙 日间/夜间模式切换</h2>
+
+<p><strong>位置：</strong> 页面右下角有一个浮动按钮组，点击 <strong>月亮&#x2F;太阳图标</strong> 即可切换。</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🌙 夜间模式（默认）</td>
+<td>白色文字 + 深色毛玻璃，适合夜间浏览</td>
+</tr>
+<tr>
+<td>☀️ 日间模式</td>
+<td>深色文字 + 浅色毛玻璃，适合白天浏览</td>
+</tr>
+</tbody></table>
+<div class="tip-box">
+💡 <strong>提示：</strong> 系统会根据你的设备时间自动切换（早7点-晚7点为日间模式）
+</div>
+
+</div>
+
+<hr>
+<div class="guide-section">
+<h2 class="guide-title">📝 如何写博客文章</h2>
+
+<h3 id="步骤-1：创建新文章"><a href="#步骤-1：创建新文章" class="headerlink" title="步骤 1：创建新文章"></a>步骤 1：创建新文章</h3><p>在终端运行：</p>
+<div class="code-example">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;你的文章标题&quot;</span></span><br></pre></td></tr></table></figure>
+
+</div>
+
+<p>这会在 <code>source/_posts/</code> 目录下创建一个新的 <code>.md</code> 文件。</p>
+<h3 id="步骤-2：编辑-Front-matter（文章元信息）"><a href="#步骤-2：编辑-Front-matter（文章元信息）" class="headerlink" title="步骤 2：编辑 Front-matter（文章元信息）"></a>步骤 2：编辑 Front-matter（文章元信息）</h3><p>每篇文章开头必须有 YAML 格式的元信息：</p>
+<div class="code-example">
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">我的第一篇技术博客</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2025-12-28 14:30:00</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">JavaScript</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">前端开发</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">学习笔记</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">技术分享</span></span><br><span class="line"><span class="attr">cover:</span> <span class="string">/img/MaligneLakeJasper.jpg</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">这是文章的简短描述，会显示在首页卡片上</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+</div>
+
+<h3 id="各字段说明："><a href="#各字段说明：" class="headerlink" title="各字段说明："></a>各字段说明：</h3><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>必填</th>
+<th>说明</th>
+<th>自动渲染</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td>✅</td>
+<td>文章标题</td>
+<td>✅ 自动显示在页面顶部</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>✅</td>
+<td>发布时间</td>
+<td>✅ 自动排序、显示在时间轴</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>❌</td>
+<td>标签（可多个）</td>
+<td>✅ 自动生成标签页、标签云</td>
+</tr>
+<tr>
+<td><code>categories</code></td>
+<td>❌</td>
+<td>分类（可多个）</td>
+<td>✅ 自动生成分类页</td>
+</tr>
+<tr>
+<td><code>cover</code></td>
+<td>❌</td>
+<td>封面图片</td>
+<td>✅ 显示在首页卡片</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>❌</td>
+<td>简短描述</td>
+<td>✅ SEO + 首页预览</td>
+</tr>
+</tbody></table>
+<h3 id="步骤-3：写正文"><a href="#步骤-3：写正文" class="headerlink" title="步骤 3：写正文"></a>步骤 3：写正文</h3><div class="code-example">
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 这是 H1 标题（一般不用，title已经是H1）</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 这是 H2 标题（章节）</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 这是 H3 标题（小节）</span></span><br><span class="line"></span><br><span class="line">正常段落文字。支持 <span class="strong">**粗体**</span>、<span class="emphasis">*斜体*</span>、<span class="code">`行内代码`</span>。</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">&lt;!-- 这行以上的内容会显示在首页预览，以下的需要点进去才能看 --&gt;</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 这是引用块，适合放名人名言或重要提示</span></span><br><span class="line"></span><br><span class="line">下面是代码块：</span><br><span class="line"></span><br><span class="line"><span class="code">```python</span></span><br><span class="line"><span class="code">def hello():</span></span><br><span class="line"><span class="code">    print(&quot;Hello, World!&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<p>下面是列表：</p>
+<ul>
+<li>项目一</li>
+<li>项目二</li>
+<li>项目三</li>
+</ul>
+<p>下面是图片：<br><img src="/img/your-image.jpg" alt="图片描述"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">### 步骤 4：预览和发布</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;code-example&quot;&gt;</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"># 本地预览</span><br><span class="line">hexo server</span><br><span class="line"></span><br><span class="line"># 生成静态文件</span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line"># 部署到 GitHub Pages</span><br><span class="line">hexo deploy</span><br><span class="line"></span><br><span class="line"># 或者一键清理+生成+部署</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+</div>
+
+<div class="tip-box">
+💡 <strong>自动渲染：</strong> 你只需要写 Markdown，Hexo 会自动：
+<ul>
+<li>把 Markdown 转换成漂亮的 HTML</li>
+<li>应用毛玻璃主题样式</li>
+<li>生成标签页和分类页</li>
+<li>更新时间轴归档</li>
+<li>生成搜索索引</li>
+</ul>
+</div>
+
+</div>
+
+<hr>
+<div class="guide-section">
+<h2 class="guide-title">🏷️ Tags（标签）使用指南</h2>
+
+<h3 id="什么是标签？"><a href="#什么是标签？" class="headerlink" title="什么是标签？"></a>什么是标签？</h3><p>标签是文章的关键词，一篇文章可以有多个标签。例如：</p>
+<ul>
+<li>一篇 React 教程可以有标签：<code>React</code>, <code>前端</code>, <code>教程</code></li>
+<li>一篇读书笔记可以有标签：<code>读书</code>, <code>Clean Code</code>, <code>编程思想</code></li>
+</ul>
+<h3 id="如何添加标签？"><a href="#如何添加标签？" class="headerlink" title="如何添加标签？"></a>如何添加标签？</h3><p>在文章的 Front-matter 中：</p>
+<div class="code-example">
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">JavaScript</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Vue.js</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">前端开发</span></span><br></pre></td></tr></table></figure>
+
+</div>
+
+<p>或者单行格式：</p>
+<div class="code-example">
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tags:</span> [<span class="string">JavaScript</span>, <span class="string">Vue.js</span>, <span class="string">前端开发</span>]</span><br></pre></td></tr></table></figure>
+
+</div>
+
+<h3 id="自动渲染："><a href="#自动渲染：" class="headerlink" title="自动渲染："></a>自动渲染：</h3><ul>
+<li>✅ <code>/tags/</code> 页面会自动显示所有标签云</li>
+<li>✅ 点击标签自动显示该标签下的所有文章</li>
+<li>✅ 标签大小根据文章数量自动调整</li>
+</ul>
+</div>
+
+<hr>
+<div class="guide-section">
+<h2 class="guide-title">📁 Categories（分类）使用指南</h2>
+
+<h3 id="什么是分类？"><a href="#什么是分类？" class="headerlink" title="什么是分类？"></a>什么是分类？</h3><p>分类是文章的层级归属，通常一篇文章只属于一个主分类。例如：</p>
+<ul>
+<li><code>技术分享</code> → 编程相关文章</li>
+<li><code>生活随笔</code> → 日常感悟</li>
+<li><code>读书笔记</code> → 书评和总结</li>
+</ul>
+<h3 id="如何添加分类？"><a href="#如何添加分类？" class="headerlink" title="如何添加分类？"></a>如何添加分类？</h3><div class="code-example">
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">技术分享</span></span><br></pre></td></tr></table></figure>
+
+</div>
+
+<h3 id="多级分类（嵌套）："><a href="#多级分类（嵌套）：" class="headerlink" title="多级分类（嵌套）："></a>多级分类（嵌套）：</h3><div class="code-example">
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> [<span class="string">技术分享</span>, <span class="string">前端开发</span>]</span><br></pre></td></tr></table></figure>
+
+</div>
+
+<p>这会创建：<code>技术分享 &gt; 前端开发</code> 的层级结构。</p>
+<h3 id="自动渲染：-1"><a href="#自动渲染：-1" class="headerlink" title="自动渲染："></a>自动渲染：</h3><ul>
+<li>✅ <code>/categories/</code> 页面自动显示分类列表</li>
+<li>✅ 显示每个分类下的文章数量</li>
+<li>✅ 支持层级展开</li>
+</ul>
+</div>
+
+<hr>
+<div class="guide-section">
+<h2 class="guide-title">📄 独立页面管理</h2>
+
+<h3 id="页面-vs-文章的区别"><a href="#页面-vs-文章的区别" class="headerlink" title="页面 vs 文章的区别"></a>页面 vs 文章的区别</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位置</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文章 (Post)</td>
+<td><code>source/_posts/</code></td>
+<td>博客文章，有日期和分类</td>
+</tr>
+<tr>
+<td>页面 (Page)</td>
+<td><code>source/xxx/index.md</code></td>
+<td>独立页面，如关于我、项目展示</td>
+</tr>
+</tbody></table>
+<h3 id="现有页面结构："><a href="#现有页面结构：" class="headerlink" title="现有页面结构："></a>现有页面结构：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">source/</span><br><span class="line">├── _posts/           # 博客文章</span><br><span class="line">│   ├── hello-universe.md</span><br><span class="line">│   └── template.md</span><br><span class="line">├── about/            </span><br><span class="line">│   └── index.md      # 关于我页面</span><br><span class="line">├── projects/         </span><br><span class="line">│   └── index.md      # 项目展示页面</span><br><span class="line">├── books/            </span><br><span class="line">│   └── index.md      # 读书列表页面</span><br><span class="line">├── resume/           </span><br><span class="line">│   └── index.md      # 简历页面</span><br><span class="line">├── gallery/          </span><br><span class="line">│   └── index.md      # 相册页面</span><br><span class="line">└── guide/            </span><br><span class="line">    └── index.md      # 本指南页面</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建新页面："><a href="#创建新页面：" class="headerlink" title="创建新页面："></a>创建新页面：</h3><div class="code-example">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;页面名称&quot;</span></span><br></pre></td></tr></table></figure>
+
+</div>
+
+<p>然后编辑 <code>source/页面名称/index.md</code></p>
+</div>
+
+<hr>
+<div class="guide-section">
+<h2 class="guide-title">✏️ 如何修改 About Me 页面</h2>
+
+<p><strong>文件位置：</strong> <code>source/about/index.md</code></p>
+<p>直接编辑这个文件，写上你的个人介绍：</p>
+<div class="code-example">
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: About Me</span><br><span class="line">date: 2025-12-28</span><br><span class="line"><span class="section">type: about</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section"># 👋 你好，我是 [你的名字]</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 🎓 教育背景</span></span><br><span class="line"><span class="bullet">-</span> XX大学 计算机科学专业 20XX-20XX</span><br><span class="line"></span><br><span class="line"><span class="section">## 💼 技能</span></span><br><span class="line"><span class="bullet">-</span> 前端：React, Vue, TypeScript</span><br><span class="line"><span class="bullet">-</span> 后端：Node.js, Python</span><br><span class="line"><span class="bullet">-</span> 其他：Git, Docker, Linux</span><br><span class="line"></span><br><span class="line"><span class="section">## 📫 联系我</span></span><br><span class="line"><span class="bullet">-</span> GitHub: [<span class="string">你的GitHub</span>](<span class="link">https://github.com/xxx</span>)</span><br><span class="line"><span class="bullet">-</span> Email: xxx@email.com</span><br><span class="line"></span><br><span class="line"><span class="section">## 🎯 兴趣爱好</span></span><br><span class="line">写写代码，看看书，偶尔打打游戏...</span><br></pre></td></tr></table></figure>
+
+</div>
+
+</div>
+
+<hr>
+<div class="guide-section">
+<h2 class="guide-title">📋 如何修改 Resume 简历页面</h2>
+
+<p><strong>文件位置：</strong> <code>source/resume/index.md</code></p>
+<p>这个页面使用了内嵌 HTML&#x2F;CSS 来实现卡片布局。你需要修改以下内容：</p>
+<ol>
+<li><strong>个人信息：</strong> 找到 <code>class=&quot;resume-name&quot;</code> 和 <code>class=&quot;resume-title&quot;</code></li>
+<li><strong>教育经历：</strong> 找到 <code>Education</code> 部分</li>
+<li><strong>工作经验：</strong> 找到 <code>Experience</code> 部分</li>
+<li><strong>技能标签：</strong> 修改 <code>class=&quot;skill-tag&quot;</code> 的内容</li>
+</ol>
+<div class="warning-box">
+⚠️ <strong>注意：</strong> 修改时保持 HTML 标签结构不变，只修改文字内容
+</div>
+
+</div>
+
+<hr>
+<div class="guide-section">
+<h2 class="guide-title">🖼️ 如何添加图片</h2>
+
+<h3 id="方法-1：放在-source-img-目录"><a href="#方法-1：放在-source-img-目录" class="headerlink" title="方法 1：放在 source&#x2F;img&#x2F; 目录"></a>方法 1：放在 source&#x2F;img&#x2F; 目录</h3><ol>
+<li>把图片放到 <code>source/img/</code> 目录</li>
+<li>在 Markdown 中引用：</li>
+</ol>
+<div class="code-example">
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">/img/my-image.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+</div>
+
+<h3 id="方法-2：使用图床"><a href="#方法-2：使用图床" class="headerlink" title="方法 2：使用图床"></a>方法 2：使用图床</h3><p>使用 GitHub、Imgur 等图床，直接用 URL：</p>
+<div class="code-example">
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">https://example.com/image.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+</div>
+
+<h3 id="设置文章封面图："><a href="#设置文章封面图：" class="headerlink" title="设置文章封面图："></a>设置文章封面图：</h3><div class="code-example">
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cover:</span> <span class="string">/img/my-cover.jpg</span></span><br></pre></td></tr></table></figure>
+
+</div>
+
+</div>
+
+<hr>
+<div class="guide-section">
+<h2 class="guide-title">🚀 常用命令速查</h2>
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hexo new post &quot;标题&quot;</code></td>
+<td>创建新文章</td>
+</tr>
+<tr>
+<td><code>hexo new page &quot;名称&quot;</code></td>
+<td>创建新页面</td>
+</tr>
+<tr>
+<td><code>hexo server</code> 或 <code>hexo s</code></td>
+<td>本地预览 (localhost:4000)</td>
+</tr>
+<tr>
+<td><code>hexo generate</code> 或 <code>hexo g</code></td>
+<td>生成静态文件</td>
+</tr>
+<tr>
+<td><code>hexo deploy</code> 或 <code>hexo d</code></td>
+<td>部署到远程</td>
+</tr>
+<tr>
+<td><code>hexo clean</code></td>
+<td>清除缓存和已生成文件</td>
+</tr>
+<tr>
+<td><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></td>
+<td>一键清理+生成+部署</td>
+</tr>
+</tbody></table>
+</div>
+
+<hr>
+<div class="guide-section">
+<h2 class="guide-title">✅ 写作 Checklist</h2>
+
+<p>发布文章前确认：</p>
+<ul>
+<li><input disabled="" type="checkbox"> <code>title</code> 标题清晰明了</li>
+<li><input disabled="" type="checkbox"> <code>date</code> 日期格式正确 (YYYY-MM-DD HH:mm:ss)</li>
+<li><input disabled="" type="checkbox"> <code>tags</code> 添加了相关标签</li>
+<li><input disabled="" type="checkbox"> <code>categories</code> 归类到合适分类</li>
+<li><input disabled="" type="checkbox"> <code>cover</code> 设置了封面图（可选）</li>
+<li><input disabled="" type="checkbox"> <code>&lt;!-- more --&gt;</code> 分隔了首页预览内容</li>
+<li><input disabled="" type="checkbox"> 代码块指定了语言（如 &#96;&#96;&#96;python）</li>
+<li><input disabled="" type="checkbox"> 图片路径正确</li>
+<li><input disabled="" type="checkbox"> 本地预览无误 (<code>hexo s</code>)</li>
+</ul>
+</div>
+
+<hr>
+<h2 id="💡-小贴士"><a href="#💡-小贴士" class="headerlink" title="💡 小贴士"></a>💡 小贴士</h2><ol>
+<li><strong>Markdown 文件名</strong>：使用英文和连字符，如 <code>my-first-post.md</code></li>
+<li><strong>图片命名</strong>：避免中文和空格，如 <code>project-screenshot.png</code></li>
+<li><strong>定期备份</strong>：<code>source/</code> 目录包含你所有的内容，记得备份或推送到 GitHub</li>
+<li><strong>修改主题</strong>：CSS 文件在 <code>source/css/cyberpunk-cosmos.css</code></li>
+</ol>
+<hr>
+<p><em>祝你写作愉快！有问题随时查阅本指南。</em> ✨</p>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZOLF</div><div class="author-info-description">Hi, I'm ZOLF. A curious explorer in the world of code, turning ideas into reality one line at a time.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/silent-king-06"><i class="fab fa-github"></i><span>My GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/silent-king-06" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #05d9e8;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">👋 Welcome to ZOLF's corner! Here I share my journey through code, projects, and random thoughts. Feel free to look around!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/12/28/template-blog-demo/" title="The Art of Residual Networks"><img src="/img/MaligneLakeJasper.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="The Art of Residual Networks"/></a><div class="content"><a class="title" href="/2025/12/28/template-blog-demo/" title="The Art of Residual Networks">The Art of Residual Networks</a><time datetime="2025-12-28T18:00:00.000Z" title="Created 2025-12-28 18:00:00">2025-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/28/hello-universe/" title="Hello Universe"><img src="/img/MaligneLakeJasper.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello Universe"/></a><div class="content"><a class="title" href="/2025/12/28/hello-universe/" title="Hello Universe">Hello Universe</a><time datetime="2025-12-28T15:00:00.000Z" title="Created 2025-12-28 15:00:00">2025-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/27/welcome/" title="Welcome to the Cosmic Void"><img src="/img/aurora-lake.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Welcome to the Cosmic Void"/></a><div class="content"><a class="title" href="/2025/12/27/welcome/" title="Welcome to the Cosmic Void">Welcome to the Cosmic Void</a><time datetime="2025-12-27T00:00:00.000Z" title="Created 2025-12-27 00:00:00">2025-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/01/template/" title="Your Post Title Here"><img src="/img/MaligneLakeJasper.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Your Post Title Here"/></a><div class="content"><a class="title" href="/2025/01/01/template/" title="Your Post Title Here">Your Post Title Here</a><time datetime="2025-01-01T12:00:00.000Z" title="Created 2025-01-01 12:00:00">2025-01-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CategoryName/"><span class="card-category-list-name">CategoryName</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Coding/"><span class="card-category-list-name">Coding</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Development/"><span class="card-category-list-name">Development</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/General/"><span class="card-category-list-name">General</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/test/" style="font-size: 1.15em; color: rgb(118, 103, 117);">test</a><a href="/tags/glassmorphism/" style="font-size: 1.15em; color: rgb(50, 88, 169);">glassmorphism</a><a href="/tags/css/" style="font-size: 1.15em; color: rgb(50, 50, 119);">css</a><a href="/tags/AI/" style="font-size: 1.15em; color: rgb(50, 97, 198);">AI</a><a href="/tags/CSS/" style="font-size: 1.15em; color: rgb(63, 151, 120);">CSS</a><a href="/tags/tag1/" style="font-size: 1.15em; color: rgb(105, 127, 151);">tag1</a><a href="/tags/tag2/" style="font-size: 1.15em; color: rgb(83, 126, 50);">tag2</a><a href="/tags/welcome/" style="font-size: 1.15em; color: rgb(157, 156, 50);">welcome</a><a href="/tags/introduction/" style="font-size: 1.15em; color: rgb(93, 65, 52);">introduction</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              December 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/01/">
+            <span class="card-archive-list-date">
+              January 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">4</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-12-28T10:42:48.495Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/MaligneLakeJasper.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By ZOLF</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3</a></span></div><div class="footer_custom_text"><div style='color: #05d9e8; text-shadow: 0 0 10px #05d9e8;'>🌌 Built with love in the cosmic void 🚀</div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><div class="js-pjax"></div><script src="/js/galaxy-effects.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="5,217,232" opacity="0.4" zIndex="-1" count="120" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="local-search-input"><input placeholder="Search the cosmos..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3"></script></div></div></body></html>
