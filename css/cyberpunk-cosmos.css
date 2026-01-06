@@ -1,0 +1,945 @@
+/* ==========================================
+   🌌 COSMIC VOID THEME - Master Edition
+   iOS Glassmorphism + Aurora Borealis
+   ========================================== */
+
+/* ===== Google Fonts: 1+1 Strategy ===== */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ===== CSS Variables ===== */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-blur: blur(20px) saturate(180%);
+  --aurora-cyan: #05d9e8;
+  --aurora-purple: #9d4edd;
+  --aurora-green: #00ff9f;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --shadow-glow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== FIXED BACKGROUND ===== */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-image: url('/img/MaligneLakeJasper.jpg') !important;
+  background-attachment: fixed !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Hide Butterfly's default background */
+#web_bg {
+  display: none !important;
+}
+
+/* ==========================================
+   PARENT CONTAINERS: FORCE TRANSPARENT
+   (No glass on wrappers - only on children)
+   ========================================== */
+#page,
+#body-wrap,
+#content-inner,
+.layout,
+main,
+.recent-posts,
+#recent-posts,
+#aside-content,
+.aside-content,
+.layout_post,
+.layout_page,
+.layout > .aside-content,
+.layout > .recent-posts {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================
+   SECTION 1: TRUE iOS GLASSMORPHISM
+   (ONLY on leaf/child elements)
+   ========================================== */
+
+/* CHILD ELEMENTS ONLY - The actual content cards */
+.recent-post-item,
+.card-widget,
+.post-content,
+#post,
+#article-container,
+.category-content,
+.tag-cloud,
+#aside-content .card-widget,
+.card-info,
+.card-categories,
+.card-tags,
+.card-archives,
+.card-recent-post,
+.card-webinfo {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-glow) !important;
+  padding: 24px !important;
+  margin-bottom: 20px;
+}
+
+/* Fix nested padding issues */
+.post-content,
+#article-container {
+  padding: 30px !important;
+}
+
+/* Homepage Cards - CRITICAL FIX */
+.recent-post-item {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recent-post-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(5, 217, 232, 0.2) !important;
+}
+
+/* ==========================================
+   SECTION 2: GLOBAL TYPOGRAPHY & CONTRAST
+   夜间模式：毛玻璃内用深色文字提高可读性
+   ========================================== */
+
+/* 2.1 毛玻璃内文字 - 深色 (提高可读性) */
+#page,
+#page *,
+.post-content,
+.post-content *,
+.card-widget,
+.card-widget *,
+.recent-post-item,
+.recent-post-item *,
+.recent-post-info,
+.recent-post-info *,
+.content,
+.content *,
+#article-container,
+#article-container *,
+.category-content,
+.category-content *,
+.tag-cloud,
+.tag-cloud *,
+.article-sort,
+.article-sort * {
+  color: #1a1a2e !important;
+}
+
+/* 2.2 Headings - 深色带轻微阴影 */
+h1, h2, h3, h4, h5, h6,
+.article-title,
+.post-title,
+.recent-post-info .article-title,
+#page h1, #page h2, #page h3,
+.post-content h1, .post-content h2, .post-content h3,
+#article-container h1, #article-container h2, #article-container h3 {
+  color: #0a0a12 !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+}
+
+/* 2.3 Paragraph Text - 深色 */
+p, li, span, div, td, th {
+  color: #2a2a3e !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+/* 2.4 Links - 保持青色，更深一点 */
+a {
+  color: #0077b6 !important;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: #05d9e8 !important;
+  text-shadow: 0 0 10px rgba(5, 217, 232, 0.5);
+}
+
+/* 2.5 Site Logo - Script Font */
+#site-name,
+.site-name,
+#blog-info .site-name {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none !important;
+}
+
+/* ==========================================
+   SECTION 3: NAVIGATION - Gap of Death Fix
+   ========================================== */
+
+/* 3.1 Navbar Glass */
+#nav {
+  background: rgba(10, 10, 20, 0.7) !important;
+  backdrop-filter: blur(15px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
+}
+
+/* 3.2 Menu Items - 导航栏文字保持白色 */
+#nav .menus_items .site-page {
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 500;
+  color: #ffffff !important;
+  text-transform: capitalize !important;
+  padding: 0 15px;
+  transition: color 0.3s ease;
+}
+
+#nav .menus_items .site-page:hover {
+  color: var(--aurora-cyan) !important;
+}
+
+/* 3.3 DROPDOWN - CRITICAL GAP FIX */
+#nav .menus_items .menus_item:hover .menus_item_child {
+  display: block;
+}
+
+#nav .menus_item_child {
+  background: rgba(15, 15, 30, 0.95) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
+  /* THE FIX: padding-top bridges the gap, margin-top creates it */
+  margin-top: 0 !important;
+  padding-top: 15px !important;
+  overflow: hidden;
+}
+
+#nav .menus_item_child li {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#nav .menus_item_child a {
+  display: block;
+  padding: 10px 20px !important;
+  color: #ffffff !important;
+  text-transform: capitalize !important;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+#nav .menus_item_child a:hover {
+  background: rgba(5, 217, 232, 0.15) !important;
+  color: var(--aurora-cyan) !important;
+  padding-left: 25px !important;
+}
+
+/* ==========================================
+   SECTION 4: CODE BLOCKS
+   ========================================== */
+
+pre, code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+}
+
+/* Inline Code */
+:not(pre) > code {
+  background: rgba(5, 217, 232, 0.15) !important;
+  color: var(--aurora-cyan) !important;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Code Blocks */
+pre,
+figure.highlight,
+.code-container,
+.highlight {
+  background: rgba(10, 10, 20, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(5, 217, 232, 0.3) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.highlight .line,
+.highlight code,
+pre code {
+  color: #e0e0e0 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Syntax Highlighting */
+.highlight .keyword { color: #ff79c6 !important; }
+.highlight .string { color: #f1fa8c !important; }
+.highlight .comment { color: #6272a4 !important; font-style: italic; }
+.highlight .function { color: #50fa7b !important; }
+.highlight .number { color: #bd93f9 !important; }
+
+/* ==========================================
+   SECTION 5: BLOCKQUOTES
+   ========================================== */
+
+blockquote {
+  background: rgba(157, 78, 221, 0.1) !important;
+  border-left: 4px solid var(--aurora-purple) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 20px 25px !important;
+  margin: 20px 0 !important;
+  font-style: italic;
+}
+
+blockquote p {
+  color: var(--text-secondary) !important;
+  margin: 0 !important;
+}
+
+/* ==========================================
+   SECTION 6: AVATAR - PLANET GLOW
+   ========================================== */
+
+#aside-content .card-widget.card-info #card-info-avatar,
+.avatar-img,
+img.avatar {
+  border-radius: 50% !important;
+  box-shadow: 
+    0 0 20px rgba(5, 217, 232, 0.5),
+    0 0 40px rgba(5, 217, 232, 0.3),
+    0 0 60px rgba(5, 217, 232, 0.1) !important;
+  border: 3px solid rgba(5, 217, 232, 0.5) !important;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+#aside-content .card-widget.card-info #card-info-avatar:hover,
+.avatar-img:hover,
+img.avatar:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 
+    0 0 30px rgba(5, 217, 232, 0.7),
+    0 0 60px rgba(157, 78, 221, 0.5),
+    0 0 90px rgba(5, 217, 232, 0.3) !important;
+}
+
+/* ==========================================
+   SECTION 7: BUTTONS & TAGS
+   ========================================== */
+
+.tag-cloud a,
+.category-list a,
+#article-container .tag-btn {
+  background: rgba(5, 217, 232, 0.15) !important;
+  border: 1px solid rgba(5, 217, 232, 0.4) !important;
+  color: var(--aurora-cyan) !important;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.tag-cloud a:hover,
+.category-list a:hover,
+#article-container .tag-btn:hover {
+  background: rgba(5, 217, 232, 0.3) !important;
+  box-shadow: 0 0 15px rgba(5, 217, 232, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   SECTION 8: SCROLLBAR
+   ========================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 20, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--aurora-cyan), var(--aurora-purple));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--aurora-green), var(--aurora-cyan));
+}
+
+/* ==========================================
+   SECTION 9: FOOTER
+   ========================================== */
+
+#footer {
+  background: rgba(10, 10, 20, 0.8) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border-top: 1px solid var(--glass-border);
+}
+
+#footer * {
+  color: var(--text-secondary) !important;
+}
+
+/* ==========================================
+   SECTION 10: RIPPLE ANIMATION (CSS Part)
+   ========================================== */
+
+.ripple-effect {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ripple-expand 0.6s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes ripple-expand {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ==========================================
+   SECTION 11: RESPONSIVE DESIGN
+   ========================================== */
+
+@media screen and (max-width: 768px) {
+  #page,
+  .recent-post-item,
+  .card-widget,
+  .post-content {
+    padding: 16px !important;
+    border-radius: 12px !important;
+  }
+  
+  #site-name {
+    font-size: 1.5rem !important;
+  }
+  
+  #nav .menus_item_child {
+    position: relative !important;
+    box-shadow: none !important;
+    padding-top: 5px !important;
+  }
+}
+
+/* ==========================================
+   SECTION 12: ANIMATIONS
+   ========================================== */
+
+/* Fade In on Load */
+.recent-post-item,
+.card-widget,
+#page {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered Animation for Cards */
+.recent-post-item:nth-child(1) { animation-delay: 0.1s; }
+.recent-post-item:nth-child(2) { animation-delay: 0.2s; }
+.recent-post-item:nth-child(3) { animation-delay: 0.3s; }
+.recent-post-item:nth-child(4) { animation-delay: 0.4s; }
+.recent-post-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* ==========================================
+   SECTION 13: SELECTION HIGHLIGHT
+   ========================================== */
+
+::selection {
+  background: rgba(5, 217, 232, 0.4);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(5, 217, 232, 0.4);
+  color: #ffffff;
+}
+
+/* ==========================================
+   RESIDUAL FIX 1: UNIFIED BACKGROUND STRATEGY
+   One Image, One Load, Zero Redundancy
+   ========================================== */
+
+/* LAYER 1: Global Fixed Background (Single Source of Truth) */
+/* Already defined in body {} above - background-attachment: fixed */
+
+/* LAYER 2: Force Header to be See-Through */
+#page-header {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* Remove ALL pseudo-element overlays (dark masks, gradients) */
+#page-header::before,
+#page-header::after {
+  display: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  opacity: 0 !important;
+}
+
+/* Remove top_img container backgrounds */
+.top-img,
+#page-header .top-img {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+.top-img::before,
+.top-img::after {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Ensure info containers are transparent */
+#page-header .page-site-info,
+#page-header #site-info,
+#page-header #post-info {
+  background: transparent !important;
+}
+
+/* ==========================================
+   RESIDUAL FIX 2: Script Font Expansion
+   ========================================== */
+
+/* Hero Title on Homepage ("Wandering Poet") */
+#site-title,
+#site-info #site-title,
+.site-title,
+#page-header .site-title {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 3.5rem !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple), var(--aurora-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none !important;
+  letter-spacing: 2px;
+}
+
+/* 名人名言 Subtitle - 紫色衬线字体加粗 (日间夜间都生效) */
+#subtitle,
+#site-info #subtitle,
+.subtitle,
+#page-header #subtitle {
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-style: italic;
+  color: #9d4edd !important;
+  -webkit-text-fill-color: #9d4edd !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 15px rgba(157, 78, 221, 0.6) !important;
+}
+
+/* Typed.js 打字效果的文字 - 加粗放大 */
+#subtitle .typed,
+.typed,
+#site-info .typed {
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-style: italic;
+  color: #9d4edd !important;
+  -webkit-text-fill-color: #9d4edd !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+}
+
+/* Page Titles on internal pages (Gallery, Projects, Hello Universe, etc.) */
+#page-header #page-site-info .page-title,
+#page-header .page-title,
+.page-title,
+#post-info .post-title,
+.post-title {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 2.8rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Article titles in post cards - keep readable */
+.recent-post-info .article-title {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 1.3rem !important;
+}
+
+/* ==========================================
+   FIX 1: BLOG/ARCHIVE TIMELINE
+   结构: 外层容器(时间轴) + 内层条目(每篇文章)
+   ========================================== */
+
+/* 外层容器 - 透明，只做布局 */
+#archive {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 20px !important;
+}
+
+/* 时间轴容器 - 单层毛玻璃 */
+.article-sort {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-glow) !important;
+  padding: 24px !important;
+}
+
+/* 每个文章条目 - 透明，不加额外毛玻璃 */
+.article-sort-item {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 10px 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0 !important;
+}
+
+.article-sort-item:last-child {
+  border-bottom: none !important;
+}
+
+/* 时间轴左侧线条 */
+.article-sort::before {
+  background: linear-gradient(180deg, var(--aurora-cyan), var(--aurora-purple)) !important;
+}
+
+/* Timeline items inside archive - 时间轴标题深色 */
+.article-sort-item-title,
+.article-sort-item-time {
+  color: #1a1a2e !important;
+}
+
+.article-sort-item-title a {
+  color: #1a1a2e !important;
+}
+
+.article-sort-item-title a:hover {
+  color: var(--aurora-cyan) !important;
+}
+
+/* Year/Month headers in timeline */
+.article-sort-item-year {
+  color: var(--aurora-cyan) !important;
+  font-weight: 600;
+  font-size: 1.3em;
+  padding: 15px 0 10px 0;
+}
+
+/* ==========================================
+   FIX 2: TAGS & CATEGORIES CONTAINERS
+   Categories: 只用一层毛玻璃
+   ========================================== */
+
+/* 外层容器 - 透明 */
+#category-content,
+.category-content {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* 分类列表 - 单层毛玻璃 */
+.category-lists,
+.category-list {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-glow) !important;
+  padding: 24px !important;
+}
+
+/* 防止嵌套的 .category-list 再加一层 */
+.category-lists .category-list {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Tags 容器 - 单层 */
+.tag-cloud,
+.tag-cloud-list,
+#tag-cloud-list {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-glow) !important;
+  padding: 24px !important;
+}
+
+/* Tag items */
+.tag-cloud a,
+.tag-cloud-list a {
+  color: var(--aurora-cyan) !important;
+  background: rgba(5, 217, 232, 0.15) !important;
+  border: 1px solid rgba(5, 217, 232, 0.3) !important;
+  padding: 5px 12px !important;
+  border-radius: 15px !important;
+  margin: 4px !important;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.tag-cloud a:hover,
+.tag-cloud-list a:hover {
+  background: rgba(5, 217, 232, 0.3) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(5, 217, 232, 0.3);
+}
+
+/* Category items */
+.category-list a,
+.category-list-item a {
+  color: var(--text-primary) !important;
+}
+
+.category-list-count {
+  color: var(--aurora-cyan) !important;
+  background: rgba(5, 217, 232, 0.2) !important;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.85em;
+}
+
+/* ==========================================
+   FIX 3: GLASS FOOTER (Replace Solid Black)
+   ========================================== */
+
+#footer {
+  background: rgba(10, 10, 20, 0.6) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+  border-top: 1px solid var(--glass-border) !important;
+  border-bottom: none !important;
+}
+
+#footer::before,
+#footer::after {
+  display: none !important;
+  background: transparent !important;
+}
+
+#footer #footer-wrap {
+  background: transparent !important;
+}
+
+#footer *,
+#footer a,
+#footer p,
+#footer span {
+  color: var(--text-secondary) !important;
+}
+
+#footer a:hover {
+  color: var(--aurora-cyan) !important;
+}
+
+/* Footer social icons glow */
+#footer .social-icon a {
+  transition: all 0.3s ease;
+}
+
+#footer .social-icon a:hover {
+  text-shadow: 0 0 15px var(--aurora-cyan);
+  transform: translateY(-3px);
+}
+
+/* ==========================================
+   日间模式 (Light Mode) 样式
+   点击右下角月亮图标切换
+   ========================================== */
+
+[data-theme="light"] {
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --text-primary: #1a1a2e;
+  --text-secondary: rgba(26, 26, 46, 0.85);
+}
+
+/* 日间模式 - 毛玻璃更亮 */
+[data-theme="light"] .recent-post-item,
+[data-theme="light"] .card-widget,
+[data-theme="light"] .post-content,
+[data-theme="light"] #post,
+[data-theme="light"] #article-container,
+[data-theme="light"] .article-sort,
+[data-theme="light"] .category-list,
+[data-theme="light"] .tag-cloud {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 日间模式 - 文字变深色 */
+[data-theme="light"] #page *,
+[data-theme="light"] .post-content *,
+[data-theme="light"] .card-widget *,
+[data-theme="light"] .recent-post-item *,
+[data-theme="light"] #article-container *,
+[data-theme="light"] .article-sort *,
+[data-theme="light"] .category-list * {
+  color: #1a1a2e !important;
+}
+
+/* 日间模式 - 标题 */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] .article-title,
+[data-theme="light"] .post-title {
+  color: #0a0a12 !important;
+  text-shadow: none !important;
+}
+
+/* 日间模式 - 链接保持青色 */
+[data-theme="light"] a {
+  color: #0077b6 !important;
+}
+
+[data-theme="light"] a:hover {
+  color: #05d9e8 !important;
+}
+
+/* 日间模式 - 导航栏 */
+[data-theme="light"] #nav {
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="light"] #nav .site-page {
+  color: #1a1a2e !important;
+}
+
+/* 日间模式 - 下拉菜单修复 */
+[data-theme="light"] #nav .menus_item_child {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme="light"] #nav .menus_item_child a {
+  color: #1a1a2e !important;
+}
+
+[data-theme="light"] #nav .menus_item_child a:hover {
+  background: rgba(5, 217, 232, 0.2) !important;
+  color: #0077b6 !important;
+}
+
+/* 日间模式 - Footer */
+[data-theme="light"] #footer {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-theme="light"] #footer * {
+  color: #1a1a2e !important;
+}
+
+/* ==========================================
+   夜间模式(默认) - 导航栏白色文字
+   ========================================== */
+
+/* 夜间模式 - 主菜单文字白色 */
+[data-theme="dark"] #nav a,
+[data-theme="dark"] #nav span,
+[data-theme="dark"] #nav .site-page,
+[data-theme="dark"] #nav .menus_items a,
+html:not([data-theme="light"]) #nav a,
+html:not([data-theme="light"]) #nav span,
+html:not([data-theme="light"]) #nav .site-page {
+  color: #ffffff !important;
+}
+
+/* 夜间模式 - 下拉子菜单白色 */
+[data-theme="dark"] #nav .menus_item_child a,
+[data-theme="dark"] #nav .menus_item_child span,
+html:not([data-theme="light"]) #nav .menus_item_child a,
+html:not([data-theme="light"]) #nav .menus_item_child span {
+  color: #ffffff !important;
+}
+
+/* 夜间模式 - Hover效果 */
+[data-theme="dark"] #nav a:hover,
+[data-theme="dark"] #nav .menus_item_child a:hover,
+html:not([data-theme="light"]) #nav a:hover,
+html:not([data-theme="light"]) #nav .menus_item_child a:hover {
+  color: #05d9e8 !important;
+}
+
+/* ==========================================
+   日间模式 - 导航栏深色文字
+   ========================================== */
+
+/* 日间模式 - 主菜单文字深色 */
+[data-theme="light"] #nav a,
+[data-theme="light"] #nav span,
+[data-theme="light"] #nav .site-page,
+[data-theme="light"] #nav .menus_items a {
+  color: #1a1a2e !important;
+}
+
+/* 日间模式 - 下拉子菜单深色 */
+[data-theme="light"] #nav .menus_item_child a,
+[data-theme="light"] #nav .menus_item_child span {
+  color: #1a1a2e !important;
+}
+
+/* 日间模式 - Hover效果 */
+[data-theme="light"] #nav a:hover,
+[data-theme="light"] #nav .menus_item_child a:hover {
+  color: #0077b6 !important;
+}
